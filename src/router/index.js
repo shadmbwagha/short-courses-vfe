@@ -12,7 +12,7 @@ const routes = [
     component: Main,
     children: [
       { path: '/dashboard', component: () => import('../views/Dashboard.vue') },
-      // { path: '/customerForm', component: () => import('../components/CustomerForm.vue') },
+      { path: '/modules', component: () => import('../views/Modules.vue') },
       // { path: '/debt', component: () => import('../views/Debt.vue') },
       // { path: '/debtForm', component: () => import('../components/DebtForm.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },

@@ -54,7 +54,7 @@
            handleLogin(){
                axios.post('/login',this.user).then((data)=>{
                    this.$toast.success("you logged in");
-                   this.$router.push('/customer');
+                   this.$router.push('/dashboard');
                }).catch(error => {
                    this.error = error;
                    this.$toast.error("failed due to " + this.error);
