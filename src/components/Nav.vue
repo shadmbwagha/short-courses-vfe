@@ -17,7 +17,7 @@
             </router-link>
          </li>
          <li>
-            <router-link to="/debt" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+            <router-link to="/students" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                <span class="flex-1 whitespace-nowrap">Student</span>
             </router-link>
          </li>
@@ -32,7 +32,7 @@
             </router-link>
          </li>
          <li>
-            <router-link to="/debt" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+            <router-link to="/curricula" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                <span class="flex-1 whitespace-nowrap">Curriculun</span>
             </router-link>
          </li>
