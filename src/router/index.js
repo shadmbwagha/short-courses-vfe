@@ -18,6 +18,9 @@ const routes = [
       { path: '/curriculumForm', component: () => import('../components/CurriculumForm.vue')},
       { path: '/curriculumModule/', component: () => import('../views/RegisterCurriculumModules.vue'), props: true, name: 'registerCurriculumModules' },
       { path: '/curriculumModules/:id', component: () => import('../views/CurriculumModules.vue'), props: true, name: 'curriculumModules' },
+      { path: '/students', component: () => import('../views/Student.vue') },
+      { path: '/studentForm', component: () => import('../components/StudentForm.vue'), name:"studentForm" },
+
       // { path: '/debtForm', component: () => import('../components/DebtForm.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },
       // { path: '/creditForm', component: () => import('../components/CreditForm.vue') },

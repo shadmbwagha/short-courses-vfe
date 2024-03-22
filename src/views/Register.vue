@@ -27,8 +27,6 @@
                             <option value="female">Female</option>
                         </select>
                     </div>
-                    
-                    
                 </div>          
                 <div class="flex mt-4 space-x-8">
                     <div>
