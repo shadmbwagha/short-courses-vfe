@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-end py-4 space-x-8 md:mx-10">
-        <router-link to="/customerForm">
-            <button class="px-4 py-2 text-white bg-green-500 rounded-lg tex-md">+ Add Customer</button>
+        <router-link :to="{name: 'moduleForm', params: {id: 0, isEdit: false}}">
+            <button class="px-4 py-2 text-white bg-blue-500 rounded-lg tex-md">+ Add Course</button>
         </router-link>
     </div>
     
@@ -10,19 +10,20 @@
         <thead>
             <tr class="bg-gray-100">
                 <th class="w-1/12 px-6 py-4 font-bold text-left text-gray-900 uppercase">sn</th>
-                <th class="w-1/4 px-6 py-4 font-bold text-left text-gray-900 uppercase">Customer Name</th>
-                <th class="w-1/6 px-6 py-4 font-bold text-left text-gray-900 uppercase">Adress</th>
-                <th class="w-1/4 px-6 py-4 font-bold text-left text-gray-900 uppercase">contact</th>
-                <th class="w-1/6 px-6 py-4 font-bold text-left text-gray-900 uppercase">Balance</th>
-                <th class="w-1/6 px-6 py-4 font-bold text-left text-gray-900 uppercase">Action</th>
+                <th class="w-1/2 px-6 py-4 font-bold text-left text-gray-900 uppercase">Name</th>
+                <th class="w-1/6 px-6 py-4 font-bold text-left text-gray-900 uppercase">code</th>
+                <th class="w-1/4 px-6 py-4 font-bold text-left text-gray-900 uppercase">curriculum</th>
+                <th class="w-1/4 px-6 py-4 font-bold text-left text-gray-900 uppercase">price</th>
+                <th class="w-1/4 px-6 py-4 font-bold text-left text-gray-900 uppercase">status</th>
             </tr>
         </thead>
         <tbody class="bg-white">
-            <tr v-for="(customer,i) in customers" :key="customer.id">
+            <tr v-for="(module,i) in modules" :key="module.id">
                 <td class="px-6 py-4 border-b border-gray-200 text-md">{{ i+1 }}</td>
-                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span>{{ customer.name }}</span></td>
-                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span>{{ customer.address }}</span></td>
-                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span>{{ customer.contact }}</span></td>
+                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span>{{ module.name }}</span></td>
+                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span>{{ module.code }}</span></td>
+                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span v-for="curriculum in module.curriculum" :key="curriculum.id">{{ curriculum.name }}</span></td>
+                <td class="px-6 py-4 truncate border-b border-gray-200 text-md hover:text-blue-500"><span v-for="curriculum in module.curriculum" :key="curriculum.id">{{ curriculum.pivot.price }}</span></td>
                 <td class="px-6 py-4 text-sm border-b border-gray-200" >
                     <span class="px-2 py-1 text-xs text-white bg-green-500 rounded-full ">Active</span>
                 </td>
@@ -56,7 +57,7 @@ export default {
     methods: {
         async getCustomer() {
             await axios.get('/modules').then((data)=> {    
-                this.modules = data.data;
+                this.modules = data.data.data;
                 console.log(this.modules);
             })
         }

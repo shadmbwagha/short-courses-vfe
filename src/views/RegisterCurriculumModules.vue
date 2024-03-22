@@ -11,7 +11,7 @@
           <form action="" @submit.prevent="createCurriculumModule">
             <div class="flex flex-col">
              <div class="flex justify-between mt-8 space-x-6">
-                <div class="flex flex-col w-1/2 space-y-2">
+                <!-- <div class="flex flex-col w-1/2 space-y-2">
                   <label for="department">Department name</label>
                   <select
                     name="department"
@@ -20,16 +20,16 @@
                   >
                   <option v-for="department in departments" :key="department.id" :value="department.department_name">{{department.department_name}}</option>
                   </select>
-                </div> 
+                </div>  -->
                
-                <div class="flex flex-col w-1/2 space-y-2">
+                <div class="flex flex-col w-full space-y-2">
                   <label for="department">Curriculum</label>
                   <select
                     name="department"
                     id=""
                     v-model="curriculumModules.curriculum_id" class="px-4 py-2 border rounded-lg focus:outline-none me-3"
                   >
-                  <option v-for="curriculum in filteredCurricula" :key="curriculum.id" :value="curriculum.id">{{curriculum.curriculum_name}} (NTA {{curriculum.nta_level}})</option>
+                  <option v-for="curriculum in curricula" :key="curriculum.id" :value="curriculum.id">{{curriculum.attributes.name}}</option>
                   </select>
                 </div>     
               </div>
@@ -55,7 +55,7 @@
               <div class="grid items-start justify-center h-56 grid-cols-2 gap-2 pt-6 overflow-scroll md:grid-cols-3 md:space-y-6 ps-4">
                 <div v-for="module in modules" :key="module.id" class="space-x-2">
                   <input type="checkbox" :value="module.id" :checked="true" v-model="curriculumModules.module_id">
-                  <label class="text-sm">{{ module.module_name}}</label>    
+                  <label class="text-sm">{{ module.name}}</label>    
                 </div>
               </div>
               
@@ -84,6 +84,7 @@
         curriculumModules: { 
           curriculum_id: "",
           module_id: [],
+          price: 0,
           created_at: "",
           updated_at: ""
         },
@@ -95,11 +96,7 @@
       };
     },
     methods: {
-      async getDepartments(){
-          await axios.get('/departments').then(({data})=>{
-              this.departments = data.data;
-          })
-      },
+      
       async getAllCurriculum() {
         await axios.get("/curricula").then(({ data }) => {
           this.curricula = data.data;
@@ -138,12 +135,12 @@
 
           const formdata  = {
             curriculum_id: curriculum_id,
-            module_id: module_id[module]
+            module_id: module_id[module],
+            price: 0
           }
           console.log(formdata);
-          axios.post("/curriculumModule", formdata).then((response) => {
+          axios.post("/curriculum-modules", formdata).then((response) => {
             console.log("API response:", response.data);
-            
           })
           .catch((error) => {
             alert("unsuccesfully save " + error);
@@ -175,7 +172,7 @@
     }
     },
     mounted() {
-      this.getDepartments();
+     
       this.getModules();
       this.getAllCurriculum();
     },

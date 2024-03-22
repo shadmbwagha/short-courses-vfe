@@ -4,7 +4,7 @@
             <input type="text" class="px-4 py-2 border rounded-lg focus:outline-none" placeholder="search here">
         </div>
         
-        <router-link to="/form">
+        <router-link to="/curriculumForm">
             <button class="flex px-4 py-2 text-white bg-blue-500 rounded-lg tex-md">
              Add Curriculum
              <span>
@@ -14,7 +14,7 @@
               </span>
             </button>
         </router-link>
-       <router-link to="/"> <!-- { name: 'registerCurriculumModules'} -->
+       <router-link to="/curriculumModule"> <!-- { name: 'registerCurriculumModules'} -->
           <button class="flex px-4 py-2 text-white bg-blue-500 rounded-lg tex-md">
             Register modules to curriculum
             <span>
@@ -93,12 +93,12 @@ export default {
   },
   methods: {
     async fetchAllCurriculum() {
-      await axios.get("/curriculums").then(({ data }) => {
+      await axios.get("/curricula").then(({ data }) => {
         this.curricula = data.data;
       });
     },
     deleteCurriculum(itemId){
-       axios.delete(`/curricula/${itemId}`)
+       axios.delete(`/curriculum/${itemId}/delete`)
         .then(() => {
         
          this.$toast.error('This is a success toast!');
@@ -107,7 +107,7 @@ export default {
           console.error('Error deleting item:', error);
         });
         window.location.reload();
-    }
+    },
   },
   mounted() {
     this.fetchAllCurriculum();
