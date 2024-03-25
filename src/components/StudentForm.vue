@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center h-screen -m-8 bg-slate-200">
+  <div class="flex items-center justify-center h-screen -m-6 bg-slate-200">
     <div class="w-3/4 px-6 py-4 bg-white shadow-md">
       <div>
         <h1 class="mt-4 font-bold text-center text-md">

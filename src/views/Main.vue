@@ -4,7 +4,7 @@
     <div class="mt-14">
       <Nav></Nav>
     </div>
-    <div class="p-2 pt-6 sm:ml-60">
+    <div class="pt-6 sm:ml-60">
           <router-view />
     </div>
       
