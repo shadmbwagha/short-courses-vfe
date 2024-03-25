@@ -4,11 +4,11 @@
             <input type="text" class="px-4 py-2 border rounded-lg focus:outline-none" placeholder="search here">
         </div>
          <router-link :to="{name: 'studentForm'}"><!--:to="{name: 'studentForm', params: {id: 0, isEdit: false}} -->
-            <button class="px-4 py-2 text-white bg-blue-500 rounded-lg">+ Add Module</button>
+            <button class="px-4 py-2 text-white bg-blue-500 rounded-lg">+ Register student</button>
         </router-link>
-        <div>
-          <button class="px-4 py-2 text-white bg-blue-500 rounded-lg">+ Import Modules(Excel)</button>
-        </div>
+        <router-link to="studentModuleRegistration">
+          <button class="px-4 py-2 text-white bg-blue-500 rounded-lg">Register Student Module</button>
+        </router-link>
     </div>
   <div>
     <div class="mx-4 overflow-hidden rounded-lg shadow-lg md:mx-10">

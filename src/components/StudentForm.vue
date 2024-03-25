@@ -5,7 +5,7 @@
         <h1 class="mt-4 font-bold text-center text-md">
           Student Registration
         </h1>
-        <form action="" @submit.prevent="createCurriculum">
+        <form action="" @submit.prevent="createStudent">
           <div class="flex flex-col">
               <div class="flex mt-8 space-x-6">
                 <div class="flex flex-col w-1/2 space-y-2">
@@ -30,12 +30,11 @@
 
               <div class="flex mt-8 space-x-6">
                 <div class="flex flex-col w-1/2 space-y-2">
-                  <label for="department">Phone Number</label>
+                  <label for="department">Date of birth</label>
                   <input
-                    type="text"
+                    type="date"
                     class="px-4 py-2 border rounded-lg focus:outline-none"
-                    placeholder="i.e 255621432167"
-                    v-model="student.phone_no"
+                    v-model="student.dob"
                   />
                 </div>
                 <div class="flex flex-col w-1/2 space-y-2">
@@ -47,9 +46,51 @@
                 </div>
               </div>
               
+              <div class="flex mt-8 space-x-6">
+                <div class="flex flex-col w-1/2 space-y-2">
+                  <label for="department">Email</label>
+                  <input
+                    type="email"
+                    class="px-4 py-2 border rounded-lg focus:outline-none"
+                    placeholder=""
+                    v-model="student.email"
+                  />
+                </div>
+                <div class="flex flex-col w-1/2 space-y-2">
+                  <label for="department">Phone Number</label>
+                  <input
+                    type="text"
+                    class="px-4 py-2 border rounded-lg focus:outline-none"
+                    placeholder="i.e 255621432167"
+                    v-model="student.phone_no"
+                  />
+                </div>
+              </div>
               
+                
           
-            
+            <div class="flex mt-8 space-x-6">
+              <div class="flex flex-col w-1/2 space-y-2">
+                  <label for="department">Curriculum</label>
+                  <select
+                    name="department"
+                    id=""
+                    class="px-4 py-2 border rounded-lg focus:outline-none me-3"
+                  >
+                  <option v-for="curriculum in curricula" :key="curriculum.id" :value="curriculum.id">{{curriculum.attributes.name}}</option>
+                  </select>
+              </div> 
+              <div class="flex flex-col w-1/2 space-y-2">
+                  <label for="department">Modules</label>
+                  <select
+                    name="department"
+                    id=""
+                    class="px-4 py-2 border rounded-lg focus:outline-none me-3"
+                  >
+                  <option v-for="curriculum in modules" :key="curriculum.id" :value="curriculum.id">{{curriculum.name}}</option>
+                  </select>
+              </div> 
+            </div>
             <div class="flex mt-8 space-x-6">
               <div class="w-full text-center">
                 <button class="w-full px-6 py-3 text-white bg-blue-600 rounded-lg">
@@ -77,17 +118,27 @@ export default {
         gender: "",
         dob: "",
         phone_no: "",
-        email: "Shadrack@gmail.com",
-        password: "123shad"
+        email: "",
+        password: ""
 
       },
-      departments: [],
+      curricula: [],
+      modules: [],
       ntalevels: []
     };
   },
   methods: {
-   
-    createCurriculum() {
+    async getAllCurriculum() {
+        await axios.get("/curricula").then(({ data }) => {
+          this.curricula = data.data;
+        });
+    },
+    async getModules(){
+        await axios.get('/modules').then(({data}) => {
+          this.modules = data.data;
+        })
+      },
+    createStudent() {
       const now = new Date();
       const year = now.getFullYear();
       const month = this.formatTime(now.getMonth() + 1); // Months are zero-based
@@ -96,14 +147,15 @@ export default {
       const minutes = this.formatTime(now.getMinutes());
       const seconds = this.formatTime(now.getSeconds());
 
-      this.curriculum.created_at = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      this.curriculum.updated_at = this.curriculum.created_at;
+      // this.student.created_at = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      // this.student.updated_at = this.curriculum.created_at;
 
-      console.log("Form data", this.curriculum);
-
-      axios.post("/curriculum/add", this.curriculum).then((response) => {
+      
+      this.student.password = `${this.student.last_name}@DIT`;
+      console.log(this.student);
+      axios.post("/students/add", this.student).then((response) => {
           this.$toast.success('This is a success !'+ response);  
-          this.$router.push('/curricula');
+          this.$router.push('/students');
            
         })
         .catch((error) => {
@@ -119,7 +171,8 @@ export default {
    
   },
   mounted() {
-   
+   this.getAllCurriculum();
+   this.getModules();
   },
 };
 </script>
