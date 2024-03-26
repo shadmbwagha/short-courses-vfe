@@ -22,13 +22,18 @@
             </router-link>
          </li>
          <li>
-            <router-link to="/debt" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+            <router-link to="/devp" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                <span class="flex-1 whitespace-nowrap">Payments</span>
             </router-link>
          </li>
          <li>
             <router-link to="/modules" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                <span class="flex-1 whitespace-nowrap">Course</span>
+            </router-link>
+         </li>
+         <li>
+            <router-link to="/devp" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+               <span class="flex-1 whitespace-nowrap">Instructor</span>
             </router-link>
          </li>
          <li>

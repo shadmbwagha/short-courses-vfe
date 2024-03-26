@@ -21,7 +21,7 @@ const routes = [
       { path: '/students', component: () => import('../views/Student.vue') },
       { path: '/studentForm', component: () => import('../components/StudentForm.vue'), name:"studentForm" },
       { path: '/studentModuleRegistration', component: () => import('../views/RegisterStudentModules.vue'), name:"studentFormRegistration" },
-      // { path: '/debtForm', component: () => import('../components/DebtForm.vue') },
+      { path: '/devp', component: () => import('../views/Maintainance.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },
       // { path: '/creditForm', component: () => import('../components/CreditForm.vue') },
     ],
