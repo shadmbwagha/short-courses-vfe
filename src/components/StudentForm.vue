@@ -1,8 +1,8 @@
 <template>
-  <div class="flex items-center justify-center h-screen -m-6 bg-slate-200">
+  <div class="flex items-center justify-center h-screen pt-16 -m-8 overflow-scroll bg-slate-200">
     <div class="w-3/4 px-6 py-4 bg-white shadow-md">
       <div>
-        <h1 class="mt-4 font-bold text-center text-md">
+        <h1 class="font-bold text-center text-md">
           Student Registration
         </h1>
         <form action="" @submit.prevent="createStudent">
@@ -38,7 +38,7 @@
                   />
                 </div>
                 <div class="flex flex-col w-1/2 space-y-2">
-                  <label class="block mb-2 text-sm font-bold text-gray-700">gender</label>
+                  <label class="block mb-2 text-sm font-bold text-gray-700">Gender</label>
                     <select name="gender" id="" v-model="student.gender" class="w-full px-4 py-2 border rounded-lg focus:outline-none" placeholder="gender">
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -76,35 +76,35 @@
                     name="department"
                     id=""
                     class="px-4 py-2 border rounded-lg focus:outline-none me-3"
+                    v-model="selected_curriculum"
                   >
                   <option v-for="curriculum in curricula" :key="curriculum.id" :value="curriculum.id">{{curriculum.attributes.name}}</option>
                   </select>
               </div>
               
-              <div class="flex flex-col w-1/2 space-y-2" v-if="!tailormade">
+              <div class="flex flex-col w-1/2 space-y-2" v-if="selected_curriculum != 3">
                   <label for="department">Modules</label>
                   <select
                     name="department"
                     id=""
                     class="px-4 py-2 border rounded-lg focus:outline-none me-3"
                   >
-                  <option v-for="curriculum in modules" :key="curriculum.id" :value="curriculum.id">{{curriculum.name}}</option>
+                    <option v-for="curriculum in modules" :key="curriculum.id" :value="curriculum.id">{{curriculum.name}}</option>
                   </select>
+              </div>
+              <div class="flex flex-col w-1/2 space-y-2" v-if="selected_curriculum == 3">
+                <label for="department">Module Name</label>
+                <input
+                  type="text"
+                  class="px-4 py-2 border rounded-lg focus:outline-none"
+                  placeholder="i.e analogue electronics"
+                  v-model="module.name"
+                />
               </div> 
             </div>
-            <div v-if="tailormade">
-                <form action="" @submit.prevent="createModule">
+            <div v-if="selected_curriculum == 3"> 
                   <div class="flex flex-col">
                     <div class="flex mt-8 space-x-6">
-                      <div class="flex flex-col w-1/2 space-y-2">
-                        <label for="department">Module Name</label>
-                        <input
-                          type="text"
-                          class="px-4 py-2 border rounded-lg focus:outline-none"
-                          placeholder="i.e analogue electronics"
-                          v-model="module.name"
-                        />
-                      </div>
                       <div class="flex flex-col w-1/2 space-y-2">
                         <label for="department">Module code</label>
                         <input
@@ -113,19 +113,7 @@
                           placeholder="COU 0746"
                           v-model="module.code"
                         />
-                      </div>    
-                    </div>
-                    <div class="flex justify-between mt-8 space-x-6">
-                      <div class="flex flex-col w-1/2 space-y-2">
-                        <label for="department">curriculum</label>
-                        <select
-                          name="department"
-                          id=""
-                          v-model="curriculum_module.curriculum_id" class="px-4 py-2 border rounded-lg focus:outline-none"
-                        >
-                        <option v-for="curriculum in curricula" :key="curriculum.id" :value="curriculum.id">{{curriculum.attributes.name}}</option>
-                        </select>
-                      </div> 
+                      </div>  
                       <div class="flex flex-col w-1/2 space-y-2">
                         <label for="department">Price</label>
                         <input
@@ -134,10 +122,13 @@
                           placeholder="COU 0746"
                           v-model="curriculum_module.price"
                         />
-                      </div>    
+                      </div>   
+                    </div>
+                    <div class="flex justify-between mt-8 space-x-6">
+                         
                     </div>         
                   </div>
-                </form>
+              
               </div>
             <div class="flex mt-8 space-x-6">
               <div class="w-full text-center">
@@ -172,14 +163,14 @@ export default {
       },
       curricula: [],
       modules: [],
-      ntalevels: [],
+      selected_curriculum: 2,
       tailormade: true,
       module: {
         name: "",
         code: "",
       },
       curriculum_module: {
-        curriculum_id: 0,
+        curriculum_id: this.selected_curriculum,
         module_id: 0,
         price: 0,
       },
