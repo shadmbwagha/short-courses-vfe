@@ -67,8 +67,6 @@
                 </div>
               </div>
               
-                
-          
             <div class="flex mt-8 space-x-6">
               <div class="flex flex-col w-1/2 space-y-2">
                   <label for="department">Curriculum</label>
@@ -88,8 +86,9 @@
                     name="department"
                     id=""
                     class="px-4 py-2 border rounded-lg focus:outline-none me-3"
+                    v-model="student_module.module_id"
                   >
-                    <option v-for="curriculum in modules" :key="curriculum.id" :value="curriculum.id">{{curriculum.name}}</option>
+                    <option v-for="modulein in modules" :key="modulein.id" :value="modulein.id">{{modulein.name}}</option>
                   </select>
               </div>
               <div class="flex flex-col w-1/2 space-y-2" v-if="selected_curriculum == 3">
@@ -159,7 +158,6 @@ export default {
         phone_no: "",
         email: "",
         password: ""
-
       },
       curricula: [],
       modules: [],
@@ -174,37 +172,85 @@ export default {
         module_id: 0,
         price: 0,
       },
+      student_module: {
+        student_id : 1,
+        module_id : 1,
+        status: "pending"
+      }
     };
   },
   methods: {
-    async getAllCurriculum() {
-        await axios.get("/curricula").then(({ data }) => {
-          this.curricula = data.data;
-        });
-    },
-    async getModules(){
+      async getAllCurriculum() {
+          await axios.get("/curricula").then(({ data }) => {
+            this.curricula = data.data;
+          });
+      },
+      async getModules(){
         await axios.get('/modules').then(({data}) => {
           this.modules = data.data;
         })
       },
-    createStudent() {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = this.formatTime(now.getMonth() + 1); // Months are zero-based
-      const day = this.formatTime(now.getDate());
-      const hours = this.formatTime(now.getHours());
-      const minutes = this.formatTime(now.getMinutes());
-      const seconds = this.formatTime(now.getSeconds());
+      studentModule(){
+        if(this.selected_curriculum==3){
+          this.student_module.module_id = this.curriculum_module.module_id;
+        }
+        
+        axios.post("/student-modules", this.student_module).then((response) => {
+          this.$toast.success('succesfully created module');  
+          this.student_module.module_id = response.data.id;
 
-      // this.student.created_at = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      // this.student.updated_at = this.curriculum.created_at;
-
-      
-      this.student.password = `${this.student.last_name}@DIT`;
-      console.log(this.student);
-      axios.post("/students/add", this.student).then((response) => {
-          this.$toast.success('This is a success !'+ response);  
           this.$router.push('/students');
+        })
+        .catch((error) => {
+          console.error("Error posting data:", error);
+        });
+      },
+    createModule() {
+      axios.post("/modules/add", this.module).then((response) => {    
+        this.curriculum_module.module_id = response.data.id;
+        this.$toast.success('succesfully created module'); 
+        this.createCurriculumModule();
+      
+      // this.$router.push('/modules');
+      
+      })
+        .catch((error) => {
+          console.error("Error posting data:", error);
+      });
+        // this.$route.push("/curriculum");
+    },
+    createCurriculumModule(){  
+    this.curriculum_module.curriculum_id = this.selected_curriculum;
+      const { curriculum_id, module_id, price} = this.curriculum_module;
+      const formdata  = {
+            curriculum_id: Number(curriculum_id),
+            module_id: Number(module_id),
+            price: Number(price)
+          }
+      console.log("Form data", formdata);
+
+      axios.post("curriculum-modules", formdata).then((response) => {
+          this.$toast.success('Succesfully registered curriculum module');  
+          this.studentModule();
+        })
+        .catch((error) => {
+          console.error("Error posting data:", error);
+        });
+    },
+    createStudent() {
+      this.student.password = `${this.student.last_name}@DIT`;
+      
+      axios.post("/students/add", this.student).then((response) => {
+          this.student_module.student_id = response.data.id;
+          this.$toast.success('succesfully registered student');
+          
+          if(this.selected_curriculum == 3){
+            this.createModule();
+          }else{
+            this.studentModule();
+          }
+  
+          // this.$router.push('/students');
            
         })
         .catch((error) => {

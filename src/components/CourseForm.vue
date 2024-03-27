@@ -91,17 +91,10 @@ export default {
   methods: {
     createCurriculumModule(){
       const now = new Date();
-      const year = now.getFullYear();
-      const month = this.formatTime(now.getMonth() + 1); // Months are zero-based
-      const day = this.formatTime(now.getDate());
-      const hours = this.formatTime(now.getHours());
-      const minutes = this.formatTime(now.getMinutes());
-      const seconds = this.formatTime(now.getSeconds());
-
       // this.curriculum_modules.created_at = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
       // this.curriculum_modules.updated_at = this.curriculum.created_at;
 
-      
+
       const { curriculum_id, module_id, price} = this.curriculum_module;
       const formdata  = {
             curriculum_id: Number(curriculum_id),
@@ -126,18 +119,7 @@ export default {
     },
     createModule() {
       const now = new Date();
-      const year = now.getFullYear();
-      const month = this.formatTime(now.getMonth() + 1); // Months are zero-based
-      const day = this.formatTime(now.getDate());
-      const hours = this.formatTime(now.getHours());
-      const minutes = this.formatTime(now.getMinutes());
-      const seconds = this.formatTime(now.getSeconds());
 
-      // this.module.created_at = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      // this.module.updated_at = this.module.created_at;
-
-      
-      
       axios.post("/modules/add", this.module).then((response) => {
         
         this.curriculum_module.module_id = response.data.id;
