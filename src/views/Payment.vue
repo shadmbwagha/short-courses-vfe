@@ -3,7 +3,7 @@
         <div>
             <input type="text" class="px-4 py-2 border rounded-lg focus:outline-none" placeholder="Search Here">
         </div>
-         <router-link :to="{name: 'studentForm'}"><!--:to="{name: 'studentForm', params: {id: 0, isEdit: false}} -->
+         <router-link :to="{name: 'studentPaymentRegistration'}"><!--:to="{name: 'studentForm', params: {id: 0, isEdit: false}} -->
             <button class="px-4 py-2 text-white bg-blue-500 rounded-lg">+ Add Payments</button>
         </router-link>
         <!-- <router-link to="studentModuleRegistration">
@@ -47,7 +47,7 @@
                 <td class="px-3 py-4 text-sm border-b border-gray-200" >
                     <span class="px-2 py-1 text-xs font-medium text-white bg-green-500 rounded-full">{{ student.account_status }}</span>
                 </td>
-                <td class="px-6 py-4 text-sm font-medium border-b border-gray-200">
+                <td class="px-3 py-4 text-sm font-medium border-b border-gray-200">
                   <div class="inline-flex items-center rounded-md shadow-sm">
                     <button class="inline-flex items-center px-2 py-2 space-x-1 text-sm font-medium bg-white border rounded-l-lg text-slate-800 hover:text-blue-600 hover:bg-slate-100 border-slate-200" @click="updateCurriculum(curriculum.id)">
                       <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
