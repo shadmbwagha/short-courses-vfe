@@ -11,16 +11,18 @@
         </router-link>
     </div>
   <div>
-    <div class="mx-4 overflow-hidden rounded-lg shadow-lg md:mx-10">
+    <div class="mx-2 overflow-hidden rounded-lg shadow-lg md:mx-6">
     <table class="w-full table-fixed even:bg-gray-">
         <thead>
             <tr class="bg-gray-100">
-                <th class="w-1 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">Sn</th>
-                <th class="w-1/2 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">Student Name</th>
-                <th class="w-1/3 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">price</th>
-                <th class="w-1/6 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">Gender</th>
-                <th class="w-1/4 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">Phone Number</th>
-                <th class="w-1/6 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">Status </th>
+                <th class="w-1 px-3 py-3 text-sm font-bold text-left text-gray-900 uppercase"></th>
+                <th class="w-1/2 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Student Name</th>
+                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Paid</th>
+                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Due</th>
+                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Total</th>
+                <th class="w-1/2 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase ">Courses</th>
+                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Phone Number</th>
+                <th class="w-1/6 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Status </th>
                 <!-- <th class="w-1/12 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">CA</th>
                 <th class="w-1/12 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">SE</th>
                 <th class="w-1/12 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">L hrs</th>
@@ -30,12 +32,20 @@
         </thead>
         <tbody class="bg-white">
             <tr v-for="(student,i) in students" :key="student.module_name">
-                <td class="px-4 py-3 text-sm border-b border-gray-200">{{ i + 1 }}</td>
-                <td class="px-6 py-4 text-sm border-b border-gray-200">{{ student.first_name }} {{ student.last_name }}</td>
-                <td class="px-4 py-3 text-sm truncate border-b border-gray-200">{{ calculateTotalPrice(student.modules) }}</td>
-                <td class="px-4 py-3 text-sm truncate border-b border-gray-200">{{ student.gender }}</td>
-                <td class="px-6 py-4 text-sm border-b border-gray-200">{{ student.phone_no }}</td>
-                <td class="px-6 py-4 text-sm border-b border-gray-200" >
+                <td class="px-3 py-3 text-sm border-b border-gray-200">{{ i + 1 }}</td>
+                <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.first_name }} {{ student.last_name }}</td>
+                <td class="px-3 py-3 text-sm truncate border-b border-gray-200"></td>
+                <td class="px-3 py-3 text-sm truncate border-b border-gray-200"></td>
+                <td class="px-3 py-3 text-sm truncate border-b border-gray-200">{{ calculateTotalPrice(student.modules) }}</td>
+                <td class="px-3 py-3 text-sm truncate border-b border-gray-200">
+                  <ul>
+                    <li v-for="(module, index) in student.modules" :key="index">
+                      {{ module.name }}
+                    </li>
+                  </ul>
+                </td>
+                <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.phone_no }}</td>
+                <td class="px-3 py-4 text-sm border-b border-gray-200" >
                     <span class="px-2 py-1 text-xs font-medium text-white bg-green-500 rounded-full">{{ student.account_status }}</span>
                 </td>
                 <!-- <td class="px-6 py-4 text-sm truncate border-b border-gray-200">{{ module.credit }}</td>
