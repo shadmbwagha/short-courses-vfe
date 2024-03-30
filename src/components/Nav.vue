@@ -38,7 +38,7 @@
          </li>
          <li>
             <router-link to="/curricula" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
-               <span class="flex-1 whitespace-nowrap">Curriculun</span>
+               <span class="flex-1 whitespace-nowrap">Curriculum</span>
             </router-link>
          </li>
       </ul>

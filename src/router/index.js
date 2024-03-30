@@ -23,6 +23,7 @@ const routes = [
       { path: '/studentModuleRegistration', component: () => import('../views/RegisterStudentModules.vue'), name:"studentFormRegistration" },
       { path: '/studentPaymentsRegistration', component: () => import('../views/RegisterStudentPayments.vue'), name:"studentPaymentRegistration" },
       { path: '/payments', component: () => import('../views/Payment.vue'), name: 'payments'},
+      { path: '/studentpayments/:id', component: () => import('../views/StudentPayment.vue'), props:true, name: 'studentPayments'},
       { path: '/devp', component: () => import('../views/Maintainance.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },
       // { path: '/creditForm', component: () => import('../components/CreditForm.vue') },
