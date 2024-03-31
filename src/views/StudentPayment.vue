@@ -1,10 +1,9 @@
 <template>
     
-    <div class="my-8 text-sm text-center">
-      <h3 class="font-medium capitalize">{{student.first_name}} {{student.last_name}}</h3>
+    <div class="flex flex-col items-center justify-center my-8 space-y-2 text-sm text-center">
+      <h3 class="font-bold capitalize">{{student.first_name}} {{student.last_name}}</h3>
       <h4>{{student.email}}/ {{student.phone_no}}</h4>
-      <h6 class="px-2 py-1 text-xs font-medium rounded-full w-fit" :class="{'text-red-500': summary.debt > 0 , 'text-green-500': summary.debt == 0}">{{ (student.debt > 0) ? 'NOT COMPLETED' : 'COMPLETED'}}</h6>
-
+      <h6 class="px-2 py-1 text-xs font-medium text-center text-white rounded-full w-fit" :class="{'bg-red-500': summary.debt > 0 , 'bg-green-500': summary.debt == 0}">{{ (student.debt > 0) ? 'NOT COMPLETED' : 'COMPLETED'}}</h6>
     </div>
   <div>
     <div class="mx-4 overflow-hidden rounded-lg shadow-sm md:mx-10">
