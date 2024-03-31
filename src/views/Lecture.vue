@@ -116,7 +116,7 @@ export default {
         .catch(error => {
           console.error('Error deleting item:', error);
         });
-        // window.location.reload();
+        window.location.reload();
     }
   },
   mounted() {

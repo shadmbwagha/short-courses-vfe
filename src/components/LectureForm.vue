@@ -88,7 +88,7 @@ export default {
         email: "",
       },
       lecture_module: {
-        lecturer_id: 0,
+        lecture_id: 0,
         module_id: 0,
       },
       modules : []
@@ -124,7 +124,7 @@ export default {
     createLecture() {
       axios.post("/lectures", this.lecture).then((response) => {
         
-        this.lecture_module.lecturer_id = response.data.id;
+        this.lecture_module.lecture_id = response.data.id;
         
         this.$toast.success('succesfully created a trainee');  
         this.createLectureModule();
