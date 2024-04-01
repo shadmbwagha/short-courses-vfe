@@ -17,8 +17,6 @@
             <tr class="bg-gray-100">
                 <th class="w-1 px-3 py-3 text-sm font-bold text-left text-gray-900 uppercase"></th>
                 <th class="w-1/2 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Student Name</th>
-                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Paid</th>
-                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Due</th>
                 <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Total</th>
                 <th class="w-1/2 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase ">Courses</th>
                 <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Phone Number</th>
@@ -34,8 +32,6 @@
             <tr v-for="(student,i) in students" :key="student.module_name">
                 <td class="px-3 py-3 text-sm border-b border-gray-200">{{ i + 1 }}</td>
                 <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.first_name }} {{ student.last_name }}</td>
-                <td class="px-3 py-3 text-sm truncate border-b border-gray-200"></td>
-                <td class="px-3 py-3 text-sm truncate border-b border-gray-200"></td>
                 <td class="px-3 py-3 text-sm truncate border-b border-gray-200">{{ calculateTotalPrice(student.modules) }}</td>
                 <td class="px-3 py-3 text-sm truncate border-b border-gray-200">
                   <ul>

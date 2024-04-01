@@ -11,7 +11,7 @@ const routes = [
     path: '/body',
     component: Main,
     children: [
-      { path: '/dashboard', component: () => import('../views/Dashboard.vue') },
+      { path: '/dashboard', component: () => import('../views/Dashboard.vue'), name: 'dashboard', props: true},
       { path: '/modules', component: () => import('../views/Modules.vue') },
       { path: '/courseForm/:id/:isEdit', component: () => import('../components/CourseForm.vue'), props: true, name: 'moduleForm' },
       { path: '/curricula', component: () => import('../views/Curriculum.vue') },

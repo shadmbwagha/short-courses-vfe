@@ -37,8 +37,7 @@
    
    <script>
    import axios from 'axios';
-   import { createRouter, useRouter } from 'vue-router';
-   import router from '@/router';
+
    
    export default{
        data(){
@@ -47,14 +46,24 @@
                    email: "",
                    password: ""
                },
-               error: ""
+               error: "",
+               loggedUser:''
            }
        },
        methods: {
            handleLogin(){
                axios.post('/login',this.user).then((data)=>{
-                   this.$toast.success("you logged in");
-                   this.$router.push('/dashboard');
+                   
+                   const { token, role } = data.data;
+                
+                   localStorage.setItem('authToken', token);
+                   localStorage.setItem('userRoles', role);
+                   localStorage.setItem('user', this.user.email );
+                   this.$toast.success("you logged in as "+ role);
+
+                    this.$router.push({ name: 'dashboard'});
+                   
+                   
                }).catch(error => {
                    this.error = error;
                    this.$toast.error("failed due to " + this.error);

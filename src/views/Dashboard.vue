@@ -1,12 +1,14 @@
 <template>
     <div class="grid grid-cols-1 gap-4 px-4 mt-8 sm:grid-cols-2 sm:px-8">
         <div class="flex items-center overflow-hidden bg-white border rounded-sm shadow">
-            <div class="p-4 bg-green-400"><svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-white" fill="none"
+            <div class="p-4 bg-green-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-white" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
                     </path>
-                </svg></div>
+                </svg>
+            </div>
             <div class="px-4 text-gray-700">
                 <h3 class="text-sm tracking-wider">Total Students</h3>
                 <p class="text-3xl">{{ dashboard.student_count}}</p>
@@ -59,7 +61,6 @@
             </div> 
         </div>
     </div>
-    
 </template>
 
 <script>
@@ -67,13 +68,15 @@ import axios from 'axios';
 export default {
     data(){
         return {
-            dashboard: []
+            dashboard: [],
+            
         }
     },
     methods: {
         async fetchAllDashboard() {
             await axios.get("/dashboard").then(({ data }) => {
                 this.dashboard = data;
+               
             });
         },
     },
