@@ -22,7 +22,7 @@
                 <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Total</th>
                 <th class="w-1/3 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase ">Courses</th>
                 <!-- <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Phone Number</th> -->
-                <th class="w-1/6 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Status </th>
+                <th class="w-1/3 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Paymnent Status </th>
                 <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">
                     Action
                 </th>
@@ -45,7 +45,8 @@
                 </td>
                 <!-- <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.phone_no }}</td> -->
                 <td class="px-3 py-4 text-sm border-b border-gray-200" >
-                    <span class="px-2 py-1 text-xs font-medium text-white bg-green-500 rounded-full">{{ student.account_status }}</span>
+                    <span class="px-2 py-1 text-xs font-medium text-white bg-green-500 rounded-full" v-if="student.debt == 0">COMPLETE</span>
+                    <span class="px-2 py-1 text-xs font-medium text-white bg-red-500 rounded-full" v-else-if="student.debt > 0">NOT COMPLETE</span>
                 </td>
                 <td class="px-3 py-4 text-sm font-medium border-b border-gray-200">
                   <div class="inline-flex items-center rounded-md shadow-sm">

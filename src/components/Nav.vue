@@ -41,6 +41,11 @@
                <span class="flex-1 whitespace-nowrap">Curriculum</span>
             </router-link>
          </li>
+         <li>
+            <router-link to="/register-staff" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+               <span class="flex-1 whitespace-nowrap">Staff</span>
+            </router-link>
+         </li>
       </ul>
       
       

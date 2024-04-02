@@ -12,12 +12,14 @@
             
              <li>
                 <router-link to="/dashboard" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
-                   <span class="flex-1 whitespace-nowrap">Dashboard</span>
+                  
+                  <span class="flex-1 whitespace-nowrap">Dashboard</span>
                    <!-- <span class="inline-flex items-center justify-center w-3 h-3 p-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full ms-3 darkv:bg-blue-900 darkv:text-blue-300">2</span> -->
                 </router-link>
              </li>
              <li>
                 <router-link to="/students" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+                 
                    <span class="flex-1 whitespace-nowrap">Student</span>
                 </router-link>
              </li>
@@ -26,21 +28,21 @@
                    <span class="flex-1 whitespace-nowrap">Payments</span>
                 </router-link>
              </li>
-             <li>
+             <!-- <li>
                 <router-link to="/modules" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                    <span class="flex-1 whitespace-nowrap">Course</span>
                 </router-link>
-             </li>
-             <li>
+             </li> -->
+             <!-- <li>
                 <router-link :to="{name: 'lectures' }" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                    <span class="flex-1 whitespace-nowrap">Instructor</span>
                 </router-link>
-             </li>
-             <li>
+             </li> -->
+             <!-- <li>
                 <router-link to="/curricula" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                    <span class="flex-1 whitespace-nowrap">Curriculum</span>
                 </router-link>
-             </li>
+             </li> -->
           </ul>
           
           

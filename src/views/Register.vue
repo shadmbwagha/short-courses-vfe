@@ -1,9 +1,9 @@
 <template>
-  <div class="py-24">
+  <div class="">
     <div class="flex items-center max-w-xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg">
         <form action="" @submit.prevent="registerUser" class="w-full p-8 ">
             
-                <h2 class="text-2xl font-semibold text-center text-green-700">DIT ITCoEICT</h2>
+                <h2 class="py-4 font-semibold text-center text-md">Register Staff</h2>
                 <div class="flex mt-4 space-x-8">
                     <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">first name</label>
@@ -40,8 +40,8 @@
                         </select>
                     </div>
                 </div>
-                
-                <div class="flex mt-4 space-x-8">
+                <div class="flex mt-4 space-x-8 text-center text-gray-500 opacity-10"></div>
+                <!-- <div class="flex mt-4 space-x-8">
                     <div class="flex flex-col w-1/2 space-y-2">
                         <div class="flex justify-between">
                             <label class="block mb-2 text-sm font-bold text-gray-700">Password</label>
@@ -55,10 +55,10 @@
                         <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="password" required v-model="password2"/>
                     </div>
                     
-                </div>
+                </div> -->
                 
                 <div class="mt-8">
-                    <button class="w-full px-4 py-2 font-bold text-white bg-green-700 rounded " type="submit">Register</button>
+                    <button class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded " type="submit">Register</button>
                 </div>
                 <div class="flex items-center justify-between mt-4">
                     <span class="w-1/5 text-green-500 border-b md:w-1/4">{{mesg}}</span>

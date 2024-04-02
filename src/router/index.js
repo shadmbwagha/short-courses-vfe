@@ -13,6 +13,7 @@ const routes = [
     children: [
       { path: '/dashboard', component: () => import('../views/Dashboard.vue'), name: 'dashboard', props: true},
       { path: '/modules', component: () => import('../views/Modules.vue') },
+      { path: '/register-staff', component: () => import('../views/Register.vue') },
       { path: '/courseForm/:id/:isEdit', component: () => import('../components/CourseForm.vue'), props: true, name: 'moduleForm' },
       { path: '/curricula', component: () => import('../views/Curriculum.vue') },
       { path: '/curriculumForm', component: () => import('../components/CurriculumForm.vue')},

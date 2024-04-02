@@ -42,7 +42,7 @@
                 </td>
                 <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.phone_no }}</td>
                 <td class="px-3 py-4 text-sm border-b border-gray-200" >
-                    <span class="px-2 py-1 text-xs font-medium text-white bg-green-500 rounded-full">{{ student.account_status }}</span>
+                    <span class="px-2 py-1 text-xs font-medium text-white bg-gray-500 rounded-full">{{ student.account_status }}</span>
                 </td>
                 <!-- <td class="px-6 py-4 text-sm truncate border-b border-gray-200">{{ module.credit }}</td>
                 <td class="px-4 py-3 text-sm border-b border-gray-200">{{ module.CA}}</td>
