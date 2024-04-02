@@ -130,7 +130,8 @@
           }
  
           axios.post("/student-modules", formdata).then((response) => {
-            console.log("API response:", response.data);
+            this.$toast.success("succesfully registered student to module");
+            this.$router.push('/students');
           })
           .catch((error) => {
             alert("unsuccesfully save " + error);

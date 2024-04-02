@@ -31,12 +31,12 @@
                <span class="flex-1 whitespace-nowrap">Transcript</span>
             </router-link>
          </li>
-         <li>
-            <router-link to="/devp" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
-               <span class="flex-1 whitespace-nowrap">Profile</span>
+         <!-- <li>
+            <router-link :to="{name: 'lectures' }" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+               <span class="flex-1 whitespace-nowrap">Instructor</span>
             </router-link>
          </li>
-         <!-- <li>
+         <li>
             <router-link to="/curricula" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                <span class="flex-1 whitespace-nowrap">Curriculum</span>
             </router-link>

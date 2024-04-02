@@ -35,7 +35,7 @@
                 </svg></div>
             <div class="px-4 text-gray-700">
                 <h3 class="text-sm tracking-wider">Total Trainee</h3>
-                <p class="text-3xl">{{ dashboard.lecture_count }}</p>
+                <p class="text-3xl">{{ dashboard.lecturer_count }}</p>
             </div>
         </div>
         <div class="flex items-center overflow-hidden bg-white border rounded-sm shadow">

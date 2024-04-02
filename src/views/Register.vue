@@ -5,22 +5,22 @@
             
                 <h2 class="text-2xl font-semibold text-center text-green-700">DIT ITCoEICT</h2>
                 <div class="flex mt-4 space-x-8">
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">first name</label>
                         <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="text" required v-model="user.first_name"/>
                     </div>
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">Surname</label>
                         <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="text" required v-model="user.last_name"/>
                     </div>    
                 </div>
                 
                 <div class="flex mt-4 space-x-8">
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">Phone number</label>
                         <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="text" required v-model="user.phone_no" placeholder="i.e 255621561022"/>
                     </div>
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">gender</label>
                         <select name="gender" id="" v-model="user.gender" class="w-full px-4 py-2 border rounded-lg focus:outline-none" placeholder="gender">
                             <option value="male">Male</option>
@@ -28,31 +28,27 @@
                         </select>
                     </div>
                 </div>          
-                <div class="flex mt-4 space-x-8">
-                    <div>
+                <div class="flex justify-between mt-8 space-x-6">
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">Email Address</label>
                         <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="email" required v-model="user.email"/>
                     </div>
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <label class="block mb-2 text-sm font-bold text-gray-700">Role</label>
-                        <select name="roles" id="" class="w-full px-4 py-2 border rounded-lg focus:outline-none" placeholder="gender">
-                            <option value="receptionist">Receptionist</option>
-                            <option value="director">Director</option>
-                            <option value="training-coordinator">training coordinator</option>
-                            <option value="Identity-manager">Indentity Manager</option>
-                            <option value="Student">Student</option>
+                        <select name="roles" id="" class="w-full px-4 py-2 border rounded-lg focus:outline-none" v-model="user.role_id" type="number">
+                            <option v-for="role in roles" :key="role.id" :value="role.id">{{ role.name }}</option>
                         </select>
                     </div>
                 </div>
                 
                 <div class="flex mt-4 space-x-8">
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <div class="flex justify-between">
                             <label class="block mb-2 text-sm font-bold text-gray-700">Password</label>
                         </div>
                         <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="password" required v-model="user.password"/>
                     </div>
-                    <div>
+                    <div class="flex flex-col w-1/2 space-y-2">
                         <div class="flex justify-between">
                             <label class="block mb-2 text-sm font-bold text-gray-700">Confirm Password</label>
                         </div>
@@ -88,16 +84,28 @@ export default {
                 phone_no: "",
                 gender: "",
                 email: "",
-                password: ""
+                password: "",
+                role_id: 0
             },
             password2: "",
             mesgErr: "",
-            mesg: ""
+            mesg: "",
+            roles: []
         }
     },
     methods: {
+        fetchRoles(){
+            axios.get('/roles')
+                .then((data)=>{
+                    this.roles = data.data;
+                }).catch((error)=> {
+                    this.$toast.error("failed: " + error);
+            });   
+        },
+        
         async registerUser(){
             if(this.password2 == this.user.password){
+                console.log(this.user);
                 await axios.post('/register',this.user).then((data)=>{
                     this.mesg = "you have succesfully registered";
                     this.$toast.success("you have succesfully registered"+ data);
@@ -112,6 +120,9 @@ export default {
             }
             
         }
+    },
+    mounted(){
+        this.fetchRoles();
     }
 
 }

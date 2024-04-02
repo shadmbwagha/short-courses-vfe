@@ -30,15 +30,6 @@
             </div>
             <div class="flex justify-between mt-8 space-x-6">
               <div class="flex flex-col w-1/2 space-y-2">
-                <label for="department">Lecture id</label>
-                <input
-                  type="text"
-                  class="px-4 py-2 border rounded-lg focus:outline-none"
-                  placeholder=""
-                  v-model="lecture.lecture_id"
-                />
-              </div> 
-              <div class="flex flex-col w-1/2 space-y-2">
                 <label for="department">Email</label>
                 <input
                   type="text"
@@ -47,9 +38,25 @@
                   v-model="lecture.email"
                 />
               </div> 
+              <div class="flex flex-col w-1/2 space-y-2">
+                <label class="block mb-2 text-sm font-bold text-gray-700">Gender</label>
+                <select name="gender" id="" v-model="lecture.gender" class="w-full px-4 py-2 border rounded-lg focus:outline-none" placeholder="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+              </div>
             </div>
             <div class="flex justify-between mt-8 space-x-6">
-              <div class="flex flex-col w-full space-y-2">
+              <div class="flex flex-col w-1/2 space-y-2">
+                <label for="department">Phone Number</label>
+                <input
+                  type="number"
+                  class="px-4 py-2 border rounded-lg focus:outline-none"
+                  placeholder=""
+                  v-model="lecture.phone_no"
+                />
+              </div> 
+              <div class="flex flex-col w-1/2 space-y-2">
                 <label for="department">Module</label>
                 <select
                   name=""
@@ -84,11 +91,12 @@ export default {
       lecture: {
         first_name: "",
         last_name: "",
-        lecture_id: "",
+        gender: "",
+        phone_no: "",
         email: "",
       },
       lecture_module: {
-        lecture_id: 0,
+        lecturer_id: 0,
         module_id: 0,
       },
       modules : []
@@ -122,9 +130,10 @@ export default {
         })
     },
     createLecture() {
-      axios.post("/lectures", this.lecture).then((response) => {
+      console.log(this.lecture);
+      axios.post("/lecturers", this.lecture).then((response) => {
         
-        this.lecture_module.lecture_id = response.data.id;
+        this.lecture_module.lecturer_id = response.data.id;
         
         this.$toast.success('succesfully created a trainee');  
         this.createLectureModule();

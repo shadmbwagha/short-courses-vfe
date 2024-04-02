@@ -32,7 +32,7 @@
             <tr class="bg-gray-100">
                 <th class="w-1 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">sn</th>
                 <th class="w-1/2 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">Trainee Name</th>
-                <th class="w-1/4 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">Lecture id</th>
+                <th class="w-1/4 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">Phone Number</th>
                 <th class="w-1/4 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">Email</th>
                 <!-- <th class="w-1/4 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">Expiry_at</th> -->
                 <!-- <th class="w-1/6 px-6 py-4 text-sm font-medium text-left text-gray-900 uppercase">Status</th> -->
@@ -47,7 +47,7 @@
                   {{ lecture.first_name }} {{ lecture.last_name }}
                   <!-- </router-link> -->
                 </td>
-                <td class="px-6 py-4 text-sm truncate border-b border-gray-200">{{ lecture.lecture_id }}</td>
+                <td class="px-6 py-4 text-sm truncate border-b border-gray-200">{{ lecture.phone_no }}</td>
                 <td class="px-6 py-4 text-sm truncate border-b border-gray-200">{{ lecture.email }}</td>
                 <!-- <td class="px-6 py-4 text-sm truncate border-b border-gray-200">{{ lecture.expiry_on }}</td> -->
                 <!-- <td class="px-6 py-4 text-sm border-b border-gray-200" >
@@ -103,13 +103,13 @@ export default {
   },
   methods: {
     async fetchAllLecture() {
-      await axios.get("/lectures").then(({ data }) => {
+      await axios.get("/lecturers").then(({ data }) => {
         this.lectures = data;
       });
     },
 
     deleteLecture(itemId){
-       axios.delete(`/lectures/${itemId}`)
+       axios.delete(`/lecturers/${itemId}`)
         .then(() => {
          this.$toast.error('This is a successfully deleted!');
         })
