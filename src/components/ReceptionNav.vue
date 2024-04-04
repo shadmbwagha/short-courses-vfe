@@ -28,6 +28,44 @@
                    <span class="flex-1 whitespace-nowrap">Payments</span>
                 </router-link>
              </li>
+             <li>
+               <details class="group">
+       
+                   <summary
+                       class="flex items-center justify-between gap-2 p-2 text-gray-900 marker:content-none hover:cursor-pointer">
+       
+                       <span class="flex flex-1 gap-2 whitespace-nowrap">
+                           <span>
+                               Report
+                           </span>
+                       </span>
+                       <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg"
+                           width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path fill-rule="evenodd"
+                               d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
+                           </path>
+                       </svg>
+                   </summary>
+       
+                   <article class="px-4 pb-4">
+                       <ul class="flex flex-col gap-1 pl-2">
+                           <li>
+                              <router-link to="/devp" class="flex items-center py-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group"> 
+                                 <span class="flex-1 whitespace-nowrap">Students</span>
+                                 <!-- <img src="../assets/images/man.svg" alt="" class="flex flex-shrink-0 w-5 h-5 transition duration-75 group-hover:text-gray-900"> -->
+                              </router-link>
+                           </li>
+                           <li>
+                              <router-link to="/devp" class="flex items-center py-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group"> 
+                                 <span class="flex-1 whitespace-nowrap">Staff</span>
+                                 <!-- <img src="../assets/images/man.svg" alt="" class="flex flex-shrink-0 w-5 h-5 transition duration-75 group-hover:text-gray-900"> -->
+                              </router-link>
+                           </li>     
+                       </ul>
+                   </article>
+       
+               </details>
+           </li>
              <!-- <li>
                 <router-link to="/modules" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                    <span class="flex-1 whitespace-nowrap">Course</span>

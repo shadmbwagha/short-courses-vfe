@@ -18,7 +18,7 @@
          </li>
          <li>
             <router-link to="/devp" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
-               <span class="flex-1 whitespace-nowrap">Payments</span>
+               <span class="flex-1 whitespace-nowrap">Students</span>
             </router-link>
          </li>
          <li>
@@ -29,6 +29,11 @@
          <li>
             <router-link to="/devp" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
                <span class="flex-1 whitespace-nowrap">Transcript</span>
+            </router-link>
+         </li>
+         <li>
+            <router-link to="/devp" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
+               <span class="flex-1 whitespace-nowrap">Profile</span>
             </router-link>
          </li>
          <!-- <li>

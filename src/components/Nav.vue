@@ -33,7 +33,7 @@
          </li>
          <li>
             <router-link :to="{name: 'lectures' }" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
-               <span class="flex-1 whitespace-nowrap">Instructor</span>
+               <span class="flex-1 whitespace-nowrap">Staff</span>
             </router-link>
          </li>
          <li>
@@ -43,7 +43,7 @@
          </li>
          <li>
             <router-link to="/register-staff" class="flex items-center p-2 text-gray-900 rounded-lg darkv:text-white hover:bg-gray-100 darkv:hover:bg-gray-700 group">
-               <span class="flex-1 whitespace-nowrap">Staff</span>
+               <span class="flex-1 whitespace-nowrap">Staff users</span>
             </router-link>
          </li>
       </ul>

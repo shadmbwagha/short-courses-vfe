@@ -4,7 +4,7 @@
     <div class="mt-14">
       <StudentNav v-if="role == 'Student'"></StudentNav>
       <Nav v-else-if="role == 'Admin'"></Nav>
-      <LectureNav v-else-if="role == 'Lecture'"></LectureNav>
+      <LectureNav v-else-if="role == 'Lecturer'"></LectureNav>
       <ReceptionNav v-else-if="role == 'Receptionist'"></ReceptionNav>
       <HTONav v-else-if="role == 'HTO'"></HTONav>
     </div>
