@@ -9,16 +9,29 @@
       <span>
         {{ user }} ({{ role }})
       </span>
+      <div @click="logout">
+          <img src="../assets/images/logout.svg" alt="" class="w-4 h-4 text-white" >
+      </div>
+
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       user: this.$store.state.user,
       role: this.$store.state.userRoles
+    }
+  },
+  methods: {
+    logout() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userRole');
+        this.$router.push('/');
+      
     }
   }
 }

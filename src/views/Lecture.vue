@@ -14,7 +14,7 @@
               </span>
             </button>
         </router-link>
-        <router-link :to="{ name: 'registerCurriculumModules'}">
+        <router-link :to="{ name: 'lectureModule'}">
           <button class="flex px-4 py-2 text-white bg-blue-500 rounded-lg tex-md">
             Register Lectures to Modules
             <span>

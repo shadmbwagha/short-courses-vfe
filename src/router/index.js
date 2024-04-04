@@ -26,6 +26,7 @@ const routes = [
       { path: '/payments', component: () => import('../views/Payment.vue'), name: 'payments'},
       { path: '/studentpayments/:id', component: () => import('../views/StudentPayment.vue'), props:true, name: 'studentPayments'},
       { path: '/lectures', component: () => import('../views/Lecture.vue'), name: 'lectures'},
+      { path: '/lecturesModules', component: () => import('../views/RegisterLectureModules.vue'), name: 'lectureModule'},
       { path: '/lectureForm/:id/:isEdit', component: () => import('../components/LectureForm.vue'), props: true, name: 'lectureForm' },
       { path: '/devp', component: () => import('../views/Maintainance.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },

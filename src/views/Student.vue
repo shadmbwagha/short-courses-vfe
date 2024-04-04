@@ -19,6 +19,7 @@
                 <th class="w-1/2 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Student Name</th>
                 <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Total</th>
                 <th class="w-1/2 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase ">Courses</th>
+                <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Email</th>
                 <th class="w-1/4 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Phone Number</th>
                 <th class="w-1/6 px-2 py-3 text-sm font-bold text-left text-gray-900 uppercase">Status </th>
                 <!-- <th class="w-1/12 px-4 py-3 text-sm font-bold text-left text-gray-900 uppercase">CA</th>
@@ -40,7 +41,9 @@
                     </li>
                   </ul>
                 </td>
+                <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.email }}</td>
                 <td class="px-3 py-4 text-sm border-b border-gray-200">{{ student.phone_no }}</td>
+
                 <td class="px-3 py-4 text-sm border-b border-gray-200" >
                     <span class="px-2 py-1 text-xs font-medium text-white bg-gray-500 rounded-full">{{ student.account_status }}</span>
                 </td>

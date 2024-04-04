@@ -3,7 +3,7 @@
       <div class="w-3/4 px-6 py-4 bg-white shadow-md">
         <div>
           <h1 class="mt-4 font-bold text-center text-md">
-            Student Modules Registration
+            Lecture Modules Registration
           </h1>
           <div>
             
@@ -23,11 +23,11 @@
                 </div> -->
                
                 <div class="flex flex-col w-full space-y-2">
-                  <label for="department">student</label>
+                  <label for="department">Lecture</label>
                   <select
                     name="department"
                     id=""
-                    v-model="studentModules.student_id" class="px-4 py-2 border rounded-lg focus:outline-none me-3"
+                    v-model="lectureModules.lecturer_id" class="px-4 py-2 border rounded-lg focus:outline-none me-3"
                   >
                   <option v-for="student in students" :key="student.id" :value="student.id">{{student.first_name}} {{student.last_name}}</option>
                   </select>
@@ -53,7 +53,7 @@
 
               <div class="grid items-start justify-center h-56 grid-cols-2 gap-2 pt-6 overflow-scroll md:grid-cols-3 md:space-y-6 ps-4">
                 <div v-for="module in modules" :key="module.id" class="space-x-2">
-                  <input type="checkbox" :value="module.id" :checked="true" v-model="studentModules.module_id">
+                  <input type="checkbox" :value="module.id" :checked="true" v-model="lectureModules.module_id">
                   <label class="text-sm">{{ module.name}}</label>    
                 </div>
               </div>
@@ -77,12 +77,10 @@
   export default {
     data() {
       return {
-        studentModules: { 
-          student_id: "",
+        lectureModules: { 
+          lecturer_id: "",
           module_id: [],
-          status: "",
-          created_at: "",
-          updated_at: ""
+         
         },
         selectedDepartmentId: 1,
         departments : [],
@@ -94,7 +92,7 @@
     methods: {
       
       async getAllCurriculum() {
-        await axios.get("/students").then(({ data }) => {
+        await axios.get("/lecturers").then(({ data }) => {
           this.students = data;
         });
     },
@@ -106,38 +104,31 @@
 
       
       createStudentModule() {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = this.formatTime(now.getMonth() + 1); // Months are zero-based
-        const day = this.formatTime(now.getDate());
-        const hours = this.formatTime(now.getHours());
-        const minutes = this.formatTime(now.getMinutes());
-        const seconds = this.formatTime(now.getSeconds());
-  
-        // this.curriculumModules.created_at = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-        // this.curriculumModules.updated_at = this.curriculumModules.created_at;
+       
 
-        
-        console.log("Form data", this.studentModules);
-        const { student_id, module_id } = this.studentModules;
+        console.log("Form data", this.lectureModules);
+        const { lecturer_id, module_id } = this.lectureModules;
         
         for(module in module_id){
 
           const formdata  = {
-            student_id: student_id,
+            lecturer_id: lecturer_id,
             module_id: module_id[module],
-            status: "pending"
+            
           }
  
-          axios.post("/student-modules", formdata).then((response) => {
-            this.$toast.success("succesfully registered student to module");
+          axios.post("/lecturer_modules", formdata).then((response) => {
+            this.$toast.success("succesfully registered lecture to module");
             this.$router.push('/students');
           })
           .catch((error) => {
             alert("unsuccesfully save " + error);
           });
         }
-
+     
+       
+        
+        
       },
       formatTime(value) {
         return value < 10 ? `0${value}` : value;

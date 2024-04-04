@@ -129,6 +129,19 @@
                   </div>
               
               </div>
+              <div class="flex mt-8 space-x-6">
+                <div class="flex flex-col w-full space-y-2" v-if="selected_curriculum != 3">
+                  <label for="department">Lecturers</label>
+                  <select
+                    name="department"
+                    id=""
+                    class="px-4 py-2 border rounded-lg focus:outline-none me-3"
+                    v-model="student_module.lecturer_id"
+                  >
+                    <option v-for="modulein in lecturers" :key="modulein.id" :value="modulein.id">{{modulein.first_name}} {{modulein.last_name}}</option>
+                  </select>
+              </div>
+              </div>
             <div class="flex mt-8 space-x-6">
               <div class="w-full text-center">
                 <button class="w-full px-6 py-3 text-white bg-blue-600 rounded-lg">
@@ -157,10 +170,12 @@ export default {
         dob: "",
         phone_no: "",
         email: "",
+    
         password: ""
       },
       curricula: [],
       modules: [],
+      lecturers: [],
       selected_curriculum: 2,
       tailormade: true,
       module: {
@@ -175,6 +190,7 @@ export default {
       student_module: {
         student_id : 1,
         module_id : 1,
+        lecture_id: 1,
         status: "pending"
       }
     };
@@ -183,6 +199,11 @@ export default {
       async getAllCurriculum() {
           await axios.get("/curricula").then(({ data }) => {
             this.curricula = data.data;
+          });
+      },
+      async getAllLecture() {
+          await axios.get("/lecturers").then(({ data }) => {
+            this.lecturers = data;
           });
       },
       async getModules(){
@@ -256,8 +277,7 @@ export default {
         .catch((error) => {
           console.error("Error posting data:", error);
         });
-        
-       
+
         
     },
     formatTime(value) {
@@ -268,6 +288,7 @@ export default {
   mounted() {
    this.getAllCurriculum();
    this.getModules();
+   this.getAllLecture();
   },
 };
 </script>
