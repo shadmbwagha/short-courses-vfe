@@ -3,7 +3,7 @@
       <div class="w-3/4 px-6 py-4 bg-white shadow-md">
         <div>
           <h1 class="mt-4 font-bold text-center text-md">
-            Student Modules Registration
+            Student Payment Registration
           </h1>
           <div>
             
@@ -49,6 +49,18 @@
                     v-model="payment.payment_date"
                   />
                 </div>  
+              </div>
+
+              <div class="flex mt-8 space-x-6">
+                <div class="flex flex-col w-full space-y-2">
+                  <label for="department">Receipt Number</label>
+                  <input
+                    type="file"
+                    class="px-4 py-2 border rounded-lg focus:outline-none"
+                    placeholder="COU 0746"
+                 
+                  />
+                </div> 
               </div>
               
               <div class="flex mt-8 space-x-6">
