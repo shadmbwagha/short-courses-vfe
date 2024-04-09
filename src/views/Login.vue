@@ -1,18 +1,22 @@
 <template>
     <div class="py-24">
-       <div class="flex items-center max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg">
+       <div class="flex items-center max-w-sm mx-auto overflow-hidden" style="">
            
            <div class="w-full p-8 ">
-               <h2 class="text-2xl font-semibold text-center text-blue-500">DIT</h2>
-               
+                <div class="flex justify-center mb-4">
+                    <img src="../assets/images/slogo.png" alt="" class="w-16 h-16">
+                </div>
+                
+               <h2 class="font-semibold text-center text-md">DIT Short Courses Management System</h2>
+               <div class="my-4 text-xs font-light">Please enter your credentials to login!</div>
                <form @submit.prevent='handleLogin()'>
                    <div class="mt-4">
-                       <label class="block mb-2 text-sm font-bold text-gray-700">Email Address</label>
+                       <label class="block mb-2 text-sm font-light text-gray-700">Email Address</label>
                        <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="email" v-model='user.email' />
                    </div>
                    <div class="mt-4">
                        <div class="flex justify-between">
-                           <label class="block mb-2 text-sm font-bold text-gray-700">Password</label>
+                           <label class="block mb-2 text-sm font-light text-gray-700">Password</label>
                            <!-- <a href="#" class="text-xs text-gray-500">Forget Password?</a> -->
                        </div>
                        <input class="block w-full px-4 py-2 text-gray-700 bg-gray-200 border border-gray-300 rounded appearance-none focus:outline-none focus:shadow-outline" type="password" v-model="user.password" required/>

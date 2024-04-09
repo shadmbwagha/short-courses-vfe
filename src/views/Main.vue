@@ -1,7 +1,7 @@
 <template>
     <Header />
     <main class="">
-    <div class="mt-14">
+    <div class="mt-14" >
       <StudentNav v-if="role == 'Student'"></StudentNav>
       <Nav v-else-if="role == 'Admin'"></Nav>
       <LectureNav v-else-if="role == 'Lecturer'"></LectureNav>
