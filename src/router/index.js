@@ -29,6 +29,8 @@ const routes = [
       { path: '/lecturesModules', component: () => import('../views/RegisterLectureModules.vue'), name: 'lectureModule'},
       { path: '/lectureForm/:id/:isEdit', component: () => import('../components/LectureForm.vue'), props: true, name: 'lectureForm' },
       { path: '/devp', component: () => import('../views/Maintainance.vue') },
+      { path: '/transcript', component: () => import('../views/TranscriptStatus.vue') },
+      { path: '/userSettings', component: () => import('../views/UserProfile.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },
       // { path: '/creditForm', component: () => import('../components/CreditForm.vue') },
     ],
