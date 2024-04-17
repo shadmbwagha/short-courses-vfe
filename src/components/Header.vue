@@ -6,9 +6,9 @@
     </div>
     <div class="flex space-x-2 text-xs text-white">
       <img src="../assets/images/man.svg" alt="" class="w-6 h-6">
-      <!-- <span>
-        {{ user }} ({{ role }})
-      </span> -->
+      <span>
+       {{ id }} {{ user }} ({{ role }})
+      </span>
       <div @click="logout">
           <img src="../assets/images/logout.svg" alt="" class="w-4 h-4 text-white" >
       </div>
@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       user: this.$store.state.user,
-      role: this.$store.state.userRoles
+      role: this.$store.state.userRoles,
+      id: this.$store.state.id
     }
   },
   methods: {

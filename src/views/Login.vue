@@ -58,10 +58,11 @@
            handleLogin(){
                axios.post('/login',this.user).then((data)=>{
                    
-                   const { token, role } = data.data;
+                   const { token, id, role } = data.data;
                 
                    localStorage.setItem('authToken', token);
                    localStorage.setItem('userRoles', role);
+                   localStorage.setItem('id', id);
                    localStorage.setItem('user', this.user.email );
                    this.$toast.success("you logged in as "+ role);
 
