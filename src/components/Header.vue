@@ -6,9 +6,9 @@
     </div>
     <div class="flex space-x-2 text-xs text-white">
       <img src="../assets/images/man.svg" alt="" class="w-6 h-6">
-      <span>
+      <!-- <span>
        {{ id }} {{ user }} ({{ role }})
-      </span>
+      </span> -->
       <div @click="logout">
           <img src="../assets/images/logout.svg" alt="" class="w-4 h-4 text-white" >
       </div>

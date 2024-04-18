@@ -31,13 +31,17 @@ const routes = [
       { path: '/devp', component: () => import('../views/Maintainance.vue') },
       { path: '/transcript', component: () => import('../views/TranscriptStatus.vue') },
       { path: '/userSettings', component: () => import('../views/UserProfile.vue') },
+
+
+      { path: '/lecturestudents', component: () => import('../views/LectureStudents.vue') },
+      { path: '/lecturestudentsstartdate', component: () => import('../views/LectureStudentStartDate.vue') },
       // { path: '/credits', component: () => import('../views/Credit.vue') },
       // { path: '/creditForm', component: () => import('../components/CreditForm.vue') },
     ],
   },
   {
     path: '/register',
-    component: () => import('../views/Register.vue'), 
+    component: () => import('../views/Register.vue'),
     name: 'register'
   },
   

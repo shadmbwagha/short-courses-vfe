@@ -70,7 +70,7 @@ export default {
     data(){
         return {
             dashboard: [],
-            
+            x: 1  
         }
     },
     methods: {
@@ -82,7 +82,7 @@ export default {
         },
     },
     mounted(){
-        this.fetchAllDashboard();
+        this.fetchAllDashboard(); 
     }
 }
 </script>
